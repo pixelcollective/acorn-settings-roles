@@ -1,0 +1,35 @@
+{
+  "name": "tiny-pixel/acorn-roles",
+  "version": "0.0.1",
+  "type": "package",
+  "license": "MIT",
+  "description": "Roles and capabilities management for Acorn",
+  "authors": [
+    {
+      "name": "Kelly Mears",
+      "email": "kelly@tinypixel.dev"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "acorn",
+    "sage",
+    "roles"
+  ],
+  "support": {
+    "issues": "https://github.com/pixelcollective/acorn-roles/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "TinyPixel\\Roles\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.3"
+  },
+  "extra": {
+    "acorn": {
+      "providers": ["TinyPixel\\Roles\\Providers\\RolesServiceProvider"]
+    }
+  }
+}
