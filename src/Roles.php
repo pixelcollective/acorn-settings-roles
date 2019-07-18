@@ -6,10 +6,8 @@ use \WP_Role;
 use function \get_role;
 use function \add_role;
 
-use \Illuminate\Support\{
-    Collection,
-    Facades\Cache,
-};
+use \Illuminate\Support\Collection;
+use \Illuminate\Support\Facades\Cache;
 
 use \Roots\Acorn\Application;
 
@@ -59,7 +57,7 @@ class Roles
             $role = $this->getRole($desiredRoleId);
 
             $this->removeCapabilities($role, Collection::make(
-                Collection::make($role->capabilities)->except($desiredCaps)
+                Collection::make($role->capabilities)->except($desiredRole['capabilities'])
             ));
 
             $this->addCapabilities($role, Collection::make(

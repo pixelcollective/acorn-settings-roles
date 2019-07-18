@@ -33,7 +33,7 @@ class RolesServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../config/roles.php' => config_path('roles.php')]);
 
         $this->app->make('wordpress.roles')->configureRoles(Collection::make(
-            $this->app['config']->get('admin.roles')
+            $this->app['config']->get('roles')
         ));
     }
 }
