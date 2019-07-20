@@ -73,10 +73,10 @@ class Roles
     /**
      * Get Role
      *
-     * @param int $roleId
+     * @param  string   $roleId
      * @return \WP_Role
      */
-    public function getRole(int $roleId)
+    public function getRole(string $roleId)
     {
         $role = get_role($roleId);
 
@@ -90,11 +90,11 @@ class Roles
     /**
      * Removes capabilities to a user role
      *
-     * @param string $role
+     * @param \WP_Role                       $role
      * @param \Illuminate\Support\Collection $capabilities
      * @return void
      */
-    public function removeCapabilities(string $role, Collection $capabilities)
+    public function removeCapabilities(WP_Role $role, Collection $capabilities)
     {
         $capabilities->each(function ($value, $capability) use ($role) {
             $role->remove_cap($capability);
@@ -104,11 +104,11 @@ class Roles
     /**
      * Adds capabilities to a user role
      *
-     * @param string $role
+     * @param \WP_Role                       $role
      * @param \Illuminate\Support\Collection $capabilities
      * @return void
      */
-    public function addCapabilities(string $role, Collection $capabilities)
+    public function addCapabilities(WP_Role $role, Collection $capabilities)
     {
         $capabilities->each(function ($cap) use ($role, $capabilities) {
             if (!$capabilities->has($cap)) {
