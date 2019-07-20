@@ -1,5 +1,5 @@
 {
-  "name": "tiny-pixel/acorn-roles",
+  "name": "tiny-pixel/acorn-settings-roles",
   "version": "0.0.1",
   "type": "package",
   "license": "MIT",
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "TinyPixel\\Roles\\": "src/"
+      "TinyPixel\\Settings\\": "src/"
     }
   },
   "require": {
@@ -29,7 +29,7 @@
   },
   "extra": {
     "acorn": {
-      "providers": ["TinyPixel\\Roles\\Providers\\RolesServiceProvider"]
+      "providers": ["TinyPixel\\Settings\\Providers\\RolesServiceProvider"]
     }
   }
 }

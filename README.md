@@ -15,7 +15,7 @@ Provides Acorn projects with configuration options for cached WordPress role and
 Install via composer:
 
 ```bash
-composer require tiny-pixel/acorn-roles
+composer require tiny-pixel/acorn-settings-roles
 ```
 
 After installation run the following command to publish the starter configuration file to your application:

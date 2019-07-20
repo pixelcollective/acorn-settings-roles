@@ -1,8 +1,8 @@
 <?php
 
-namespace TinyPixel\Roles\Providers;
+namespace TinyPixel\Settings\Providers;
 
-use \TinyPixel\Roles\Roles;
+use \TinyPixel\Settings\Roles;
 use \Illuminate\Support\Collection;
 
 use function \Roots\config_path;

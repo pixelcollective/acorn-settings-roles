@@ -1,6 +1,6 @@
 <?php
 
-namespace TinyPixel\Roles;
+namespace TinyPixel\Settings;
 
 use \WP_Role;
 use function \get_role;
@@ -16,10 +16,10 @@ class Roles
     /**
      * Construct
      *
-     * @param \Roots\Acorn\Application IOC
-     * @return object self
+     * @param  \Roots\Acorn\Application IOC
+     * @return void
      */
-    public function __construct(\Roots\Acorn\Application $app)
+    public function __construct(Application $app)
     {
         $this->app = $app;
     }
@@ -40,6 +40,8 @@ class Roles
     /**
      * Sets roles via \Illuminate\Support\Facades\Cache
      * Run `wp acorn optimize:clear` to flush when changing roles or caps
+     *
+     * @return void
      */
     public function setWithCache()
     {
@@ -50,6 +52,8 @@ class Roles
 
     /**
      * Sets roles and capabilities
+     *
+     * @return void
      */
     public function set()
     {
@@ -72,7 +76,7 @@ class Roles
      * @param int $roleId
      * @return \WP_Role
      */
-    public function getRole($roleId)
+    public function getRole(int $roleId)
     {
         $role = get_role($roleId);
 
@@ -83,14 +87,28 @@ class Roles
         return $role;
     }
 
-    public function removeCapabilities($role, $capabilities)
+    /**
+     * Removes capabilities to a user role
+     *
+     * @param string $role
+     * @param \Illuminate\Support\Collection $capabilities
+     * @return void
+     */
+    public function removeCapabilities(string $role, Collection $capabilities)
     {
         $capabilities->each(function ($value, $capability) use ($role) {
             $role->remove_cap($capability);
         });
     }
 
-    public function addCapabilities($role, $capabilities)
+    /**
+     * Adds capabilities to a user role
+     *
+     * @param string $role
+     * @param \Illuminate\Support\Collection $capabilities
+     * @return void
+     */
+    public function addCapabilities(string $role, Collection $capabilities)
     {
         $capabilities->each(function ($cap) use ($role, $capabilities) {
             if (!$capabilities->has($cap)) {
