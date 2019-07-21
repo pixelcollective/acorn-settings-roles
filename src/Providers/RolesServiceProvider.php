@@ -30,10 +30,10 @@ class RolesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([__DIR__ . '/../config/roles.php' => config_path('roles.php')]);
+        $this->publishes([__DIR__ . '/../config/wordpress/roles.php' => config_path('wordpress/roles.php')]);
 
         $this->app->make('wordpress.roles')->configureRoles(Collection::make(
-            $this->app['config']->get('roles')
+            $this->app['config']->get('wordpress.roles')
         ));
     }
 }
