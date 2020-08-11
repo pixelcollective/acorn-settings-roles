@@ -81,7 +81,7 @@ class Roles
         $role = get_role($roleId);
 
         if (!$role) {
-            $role = add_role($desiredRoleId, $desiredRole['display_name']);
+            $role = add_role($roleId, $this->desiredRoles[$roleId]['display_name'] ?? '');
         }
 
         return $role;
